@@ -1,6 +1,8 @@
-# Mysql Xml formatter plugin for Embulk
+# MySQL XML formatter plugin for Embulk
 
-TODO: Write short description here and embulk-formatter-mysql_xml.gemspec file.
+Embulk formatter plugin to output value for MySQL's `LOAD XML` statement.
+
+https://dev.mysql.com/doc/refman/5.7/en/load-xml.html
 
 ## Overview
 
@@ -8,21 +10,20 @@ TODO: Write short description here and embulk-formatter-mysql_xml.gemspec file.
 
 ## Configuration
 
-- **option1**: description (integer, required)
-- **option2**: description (string, default: `"myvalue"`)
-- **option3**: description (string, default: `null`)
+- **root_element**: A element name of root element (string, required)
+- **row_element**: A element name of row element (string, required)
+- **timestamp_format**: Timestamp format for timestamp column (string, default: `%Y-%m-%d %H:%M:%S`)
 
 ## Example
 
 ```yaml
 out:
-  type: any output input plugin type
+  type: an output plugin supporting a formatter plugin such as `file`
   formatter:
     type: mysql_xml
-    option1: example1
-    option2: example2
+    root_element: root
+    row_element: row
 ```
-
 
 ## Build
 
